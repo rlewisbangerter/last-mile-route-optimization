@@ -9,7 +9,7 @@ Passion project by Reuben Bangerter (Rutgers, Business Analytics & IT / Supply C
 ## Key findings
 
 - **Manual routes drive 17% / 26% / 28% extra miles** (urban / suburban / rural), measured across 15 simulated delivery areas. V1 had assumed 20%.
-- **Optimized 120-stop routes cut cost per package 3.6% / 9.4% / 11.6%.**
+- **Optimized 120-stop routes cut cost per package 3.6% / 9.4% / 11.6%**, worth about $175K / $633K / $906K a year for a 50-route fleet.
 - **50% parcel-locker adoption cuts carrier cost per package 22–24%.** Counting the customer's drive, the saving is 22% urban, 14% suburban and ~0 rural.
 - **Stop density matters most:** going from 20 to 120 stops cuts cost per package 38–48%.
 
@@ -17,9 +17,19 @@ Passion project by Reuben Bangerter (Rutgers, Business Analytics & IT / Supply C
 
 | File | What it is |
 |---|---|
-| `files/LastMile_Dashboard.pbix` | Power BI dashboard: 3 pages (Route Optimizer, Lockers, Evidence), 29 DAX measures, 4 what-if sliders |
+| `files/LastMile_Dashboard.pbix` | Power BI dashboard: 3 pages (Route Optimizer, Lockers, Evidence), 63 DAX measures, area filter + 4 what-if sliders (stops per route, home failure rate, driver cost, locker adoption) |
 | `files/LastMile_Model_V3_Excel.xlsx` | Excel model V3: Inputs, 15 Route Labs, Lab Summary, Scale-Up, Density, Lockers, V1 Check |
 | `files/LastMile_Model_V2_Excel.xlsx` | Earlier version with one lab per area type |
+
+## Power BI dashboard
+
+| Page | Question | What it shows |
+|---|---|---|
+| Route Optimizer | Does route optimization pay off? | Fleet saving per year, optimized cost per package, optimized miles, routing saving %; manual vs. optimized cost by area; cost vs. stops per route |
+| Lockers | Do parcel lockers cut cost, or just move it to customers? | Baseline vs. carrier vs. system cost per package; waterfall of where the locker savings go |
+| Evidence | How far off are manual routes? | Extra-miles gap for each of the 15 labs, total miles by routing method, lowest-to-highest range |
+
+Tables: `AreaTypes`, `LabResults` (15 labs), `Global` inputs, what-if tables for each slider, and helper tables for the waterfall and the stops axis. Opens in Power BI Desktop (free, Windows). An in-browser version of the same calculations is on the [project page](https://reubenbangerter.org/last-mile/#try).
 
 ## Tools
 
